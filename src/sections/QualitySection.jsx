@@ -27,12 +27,12 @@ export default function QualitySection({ onOpenQuote }) {
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-3xl mb-14"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
@@ -47,20 +47,20 @@ export default function QualitySection({ onOpenQuote }) {
           </p>
         </motion.div>
 
-        {/* Certifications Grid in .glass-light */}
+        {/* Certifications Grid in .glass-light with Staggered Scroll Reveal */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-14">
           {CERTIFICATIONS.map((cert, index) => (
             <motion.div
               key={cert.code}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{
                 duration: 0.5,
-                delay: (index % 4) * 0.06,
-                ease: [0.22, 1, 0.36, 1],
+                delay: (index % 4) * 0.08,
+                ease: [0.25, 1, 0.5, 1],
               }}
-              className="cert-card glass-light p-5 rounded-[16px] flex flex-col justify-between hover:-translate-y-1 hover:shadow-card transition-all duration-200"
+              className="cert-card glass-light p-5 rounded-[16px] flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
@@ -85,10 +85,10 @@ export default function QualitySection({ onOpenQuote }) {
 
           {/* Placeholder Card for custom certificates in .glass-light */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.5, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.32, ease: [0.25, 1, 0.5, 1] }}
             className="cert-card glass-light p-5 rounded-[16px] border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-6 hover:border-slate-400 transition-colors"
           >
             <Plus className="w-6 h-6 text-slate-400 mb-2" />
@@ -101,8 +101,14 @@ export default function QualitySection({ onOpenQuote }) {
           </motion.div>
         </div>
 
-        {/* In-House Testing Laboratory Section in .glass-dark */}
-        <div className="glass-dark rounded-[20px] text-white p-6 sm:p-10 border border-white/15 relative overflow-hidden">
+        {/* In-House Testing Laboratory Section in .glass-dark with subtle scroll reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+          className="glass-dark rounded-[20px] text-white p-6 sm:p-10 border border-white/15 relative overflow-hidden"
+        >
           <div className="max-w-xl mb-6">
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#8CC63F] block mb-1">Analytical Testing</span>
             <h3 className="text-xl sm:text-2xl font-display font-bold text-white">
@@ -131,7 +137,7 @@ export default function QualitySection({ onOpenQuote }) {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -36,12 +36,12 @@ export default function WhyChooseUs() {
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-3xl mb-14"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
@@ -56,7 +56,7 @@ export default function WhyChooseUs() {
           </p>
         </motion.div>
 
-        {/* 6 Advantage Cards: 3 columns desktop, 2 columns tablet, 1 column mobile in .glass-light */}
+        {/* 6 Advantage Cards: Staggered Gentle Scroll Reveal (halka show ho) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {WHY_CHOOSE_US.map((item, index) => {
             const IconComponent = ICON_MAP[item.icon] || Leaf;
@@ -64,15 +64,15 @@ export default function WhyChooseUs() {
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 26 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-20px' }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{
-                  duration: 0.5,
-                  delay: (index % 3) * 0.08,
-                  ease: [0.22, 1, 0.36, 1],
+                  duration: 0.55,
+                  delay: (index % 3) * 0.1,
+                  ease: [0.25, 1, 0.5, 1],
                 }}
-                className="why-item glass-light p-6 rounded-[16px] hover:-translate-y-1 hover:shadow-card transition-all duration-200 flex flex-col justify-between"
+                className="why-item glass-light p-6 rounded-[16px] hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

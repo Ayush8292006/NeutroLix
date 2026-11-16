@@ -52,12 +52,12 @@ export default function ContactSection() {
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-3xl mb-14"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#8CC63F] block mb-2">
@@ -74,11 +74,17 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left Column: Office Coordinates & Map in .glass */}
-          <div className="lg:col-span-5 space-y-5">
+          {/* Left Column: Office Coordinates & Map in .glass with gentle reveal */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
+            className="lg:col-span-5 space-y-5"
+          >
             <div className="space-y-4">
               {/* Corporate HQ in .glass */}
-              <div className="glass p-5 rounded-[16px] flex items-start gap-3.5">
+              <div className="glass p-5 rounded-[16px] flex items-start gap-3.5 hover:border-white/35 transition-colors">
                 <Building className="w-5 h-5 text-[#8CC63F] mt-0.5 flex-shrink-0" />
                 <div>
                   <h3 className="font-display font-bold text-sm text-white">Corporate Headquarters</h3>
@@ -89,7 +95,7 @@ export default function ContactSection() {
               </div>
 
               {/* Manufacturing Campus in .glass */}
-              <div className="glass p-5 rounded-[16px] flex items-start gap-3.5">
+              <div className="glass p-5 rounded-[16px] flex items-start gap-3.5 hover:border-white/35 transition-colors">
                 <MapPin className="w-5 h-5 text-[#29A9E0] mt-0.5 flex-shrink-0" />
                 <div>
                   <h3 className="font-display font-bold text-sm text-white">Agro-Processing & Spray Drying Plant</h3>
@@ -101,14 +107,14 @@ export default function ContactSection() {
 
               {/* Direct Channels */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="glass p-4 rounded-[14px]">
+                <div className="glass p-4 rounded-[14px] hover:border-white/35 transition-colors">
                   <div className="text-[10px] font-mono uppercase text-[#8CC63F] font-semibold">Direct Telephone</div>
                   <a href={`tel:${COMPANY_INFO.phone}`} className="text-xs font-bold text-white hover:text-[#8CC63F] transition-colors mt-0.5 block">
                     {COMPANY_INFO.phone}
                   </a>
                 </div>
 
-                <div className="glass p-4 rounded-[14px]">
+                <div className="glass p-4 rounded-[14px] hover:border-white/35 transition-colors">
                   <div className="text-[10px] font-mono uppercase text-[#8CC63F] font-semibold">Export Desk Email</div>
                   <a href={`mailto:${COMPANY_INFO.email}`} className="text-xs font-bold text-white hover:text-[#8CC63F] transition-colors mt-0.5 block truncate">
                     {COMPANY_INFO.email}
@@ -123,17 +129,17 @@ export default function ContactSection() {
               <div className="font-display font-bold text-sm text-white">Mega Food Agro Processing Corridor, NH 48</div>
               <div className="text-xs text-slate-300 mt-1.5 leading-relaxed">Direct freight access to JNPT International Container Terminal (120 km)</div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Large .glass Form Panel */}
-          <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="glass p-6 sm:p-9 rounded-[20px] border border-white/25 shadow-2xl"
-            >
+          {/* Right Column: Large .glass Form Panel with gentle reveal */}
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: 0.16, ease: [0.25, 1, 0.5, 1] }}
+            className="lg:col-span-7"
+          >
+            <div className="glass p-6 sm:p-9 rounded-[20px] border border-white/25 shadow-2xl">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
                   <div className="w-14 h-14 bg-[#8CC63F]/20 rounded-full flex items-center justify-center mx-auto text-[#8CC63F] border border-[#8CC63F]/30">
@@ -261,8 +267,8 @@ export default function ContactSection() {
                   </div>
                 </form>
               )}
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
         </div>
 

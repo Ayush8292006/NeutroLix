@@ -1,6 +1,7 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { IMAGES } from '../data/images';
 
 export default function Hero({ onOpenQuote, splashFinished }) {
@@ -129,8 +130,13 @@ export default function Hero({ onOpenQuote, splashFinished }) {
         </div>
       </div>
 
-      {/* Bottom Floating .glass Facts Strip (2x2 on mobile, 4-col on desktop) */}
-      <div className="relative z-20 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6 sm:pb-8">
+      {/* Bottom Floating .glass Facts Strip with gentle entrance */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6, duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+        className="relative z-20 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6 sm:pb-8"
+      >
         <div className="glass p-4 sm:p-6 w-full">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {keyFacts.map((fact, index) => (
@@ -151,7 +157,7 @@ export default function Hero({ onOpenQuote, splashFinished }) {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

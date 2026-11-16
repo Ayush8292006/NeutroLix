@@ -26,12 +26,12 @@ export default function AboutUs() {
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
           className="about-header max-w-3xl mb-12"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
@@ -48,10 +48,10 @@ export default function AboutUs() {
           
           {/* Left: Statement & Narrative on clean background */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
             className="about-text-block lg:col-span-7 space-y-5"
           >
             <p className="text-lg sm:text-xl font-display font-semibold text-[#0B3C5D] leading-relaxed">
@@ -82,10 +82,10 @@ export default function AboutUs() {
 
           {/* Right: Image with overlapping .glass-light card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-30px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.65, delay: 0.16, ease: [0.25, 1, 0.5, 1] }}
             className="about-img-block lg:col-span-5 relative"
           >
             <div className="rounded-[16px] overflow-hidden border border-slate-200 shadow-card relative bg-white">
@@ -117,14 +117,14 @@ export default function AboutUs() {
 
         </div>
 
-        {/* 3 Fact Cards styled in .glass-light */}
+        {/* 3 Fact Cards styled in .glass-light with staggered subtle scroll reveal */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.5, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
+            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
           >
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#0B3C5D]">
@@ -143,11 +143,11 @@ export default function AboutUs() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.5, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.16, ease: [0.25, 1, 0.5, 1] }}
+            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
           >
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#0B3C5D]">
@@ -166,11 +166,11 @@ export default function AboutUs() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 26 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-20px' }}
-            transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1 transition-transform duration-200"
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.24, ease: [0.25, 1, 0.5, 1] }}
+            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
           >
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#0B3C5D]">

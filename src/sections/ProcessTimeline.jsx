@@ -12,12 +12,12 @@ export default function ProcessTimeline() {
     >
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-3xl mb-14"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
@@ -27,25 +27,25 @@ export default function ProcessTimeline() {
           <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-display font-extrabold text-[#0B3C5D] tracking-tight leading-[1.18]">
             Farm-to-Drum Processing & Analytical Quarantine
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
+          <p className="mt-3 text-base text-slate-600 leading-relaxed font-medium">
             Continuous temperature-controlled drying and closed-loop milling protocols engineered to preserve heat-sensitive enzymes, vitamins, and organoleptic properties.
           </p>
         </motion.div>
 
-        {/* Static Step Cards Grid (100% Reliable Native Intersection) */}
+        {/* Static Step Cards Grid with Gentle Staggered Scroll Reveal */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PROCESS_TIMELINE.map((stepItem, index) => (
             <motion.div
               key={stepItem.step}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.15 }}
               transition={{
-                duration: 0.5,
-                delay: (index % 3) * 0.08,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.55,
+                delay: (index % 3) * 0.1,
+                ease: [0.25, 1, 0.5, 1],
               }}
-              className={`process-card group rounded-[16px] bg-white border border-slate-200 overflow-hidden flex flex-col justify-between hover:border-[#0B3C5D] hover:-translate-y-1 hover:shadow-card transition-all duration-200 ${
+              className={`process-card group rounded-[16px] bg-white border border-slate-200 overflow-hidden flex flex-col justify-between hover:border-[#0B3C5D] hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 ${
                 index === 6 ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >
@@ -61,13 +61,13 @@ export default function ProcessTimeline() {
                 </div>
 
                 {/* Step Badge */}
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-[#06283D]/90 text-white px-2.5 py-1 rounded-[2px] font-mono text-xs font-bold shadow-sm">
+                <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-[#06283D]/90 text-white px-2.5 py-1 rounded-[6px] font-mono text-xs font-bold shadow-sm">
                   <span className="text-[#8CC63F]">STEP</span>
                   <span>{stepItem.step}</span>
                 </div>
 
                 {/* Duration Badge */}
-                <div className="absolute bottom-2.5 right-3 flex items-center gap-1 bg-black/60 text-white px-2 py-0.5 rounded-[2px] text-[10.5px] font-mono">
+                <div className="absolute bottom-2.5 right-3 flex items-center gap-1 bg-black/60 backdrop-blur-sm text-white px-2 py-0.5 rounded-[4px] text-[10.5px] font-mono">
                   <Clock className="w-3 h-3 text-[#8CC63F]" />
                   <span>{stepItem.duration}</span>
                 </div>
@@ -79,7 +79,7 @@ export default function ProcessTimeline() {
                   <h3 className="font-display font-bold text-base text-[#0B3C5D]">
                     {stepItem.title}
                   </h3>
-                  <p className="text-xs text-slate-600 mt-2 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-2 leading-relaxed font-medium">
                     {stepItem.desc}
                   </p>
                 </div>

@@ -52,12 +52,12 @@ export default function ProductsSection({ onSelectProduct }) {
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
+        {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 26 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-40px' }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-3xl mb-12"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#8CC63F] block mb-2">
@@ -72,8 +72,14 @@ export default function ProductsSection({ onSelectProduct }) {
           </p>
         </motion.div>
 
-        {/* Filter Bar with Glass Elements */}
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-5 border-b border-white/15">
+        {/* Filter Bar with Gentle Scroll Reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.55, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
+          className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 mb-10 pb-5 border-b border-white/15"
+        >
           <div className="flex items-center flex-wrap gap-2">
             {CATEGORIES.map((cat) => {
               const count = cat === 'All'
@@ -109,22 +115,22 @@ export default function ProductsSection({ onSelectProduct }) {
               className="w-full text-xs pl-8 pr-3 py-2 rounded-[8px] border border-white/25 focus:outline-none focus:border-[#8CC63F] bg-white/10 backdrop-blur-md text-white placeholder-slate-300"
             />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Products Grid: 4 columns desktop, 2 columns tablet, 1 column mobile in .glass */}
+        {/* Products Grid: Subtle, Gentle Scroll Entrance (halka show ho) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 26 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-20px' }}
+              viewport={{ once: true, amount: 0.12 }}
               transition={{
-                duration: 0.5,
-                delay: (index % 4) * 0.05,
-                ease: [0.22, 1, 0.36, 1],
+                duration: 0.55,
+                delay: (index % 4) * 0.08,
+                ease: [0.25, 1, 0.5, 1],
               }}
-              className="product-card group glass rounded-[16px] overflow-hidden flex flex-col justify-between hover:-translate-y-1 hover:border-white/40 transition-all duration-200"
+              className="product-card group glass rounded-[16px] overflow-hidden flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card hover:border-white/40 transition-all duration-300"
             >
               {/* Product Visual Header with Img & Zoom on hover */}
               <div className="relative aspect-[16/11] overflow-hidden bg-black/40 border-b border-white/10">
@@ -209,8 +215,14 @@ export default function ProductsSection({ onSelectProduct }) {
           ))}
         </div>
 
-        {/* Custom R&D Inquiries Banner inside .glass */}
-        <div className="mt-12 p-6 sm:p-8 rounded-[16px] glass text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/20">
+        {/* Custom R&D Inquiries Banner inside .glass with gentle reveal */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+          className="mt-12 p-6 sm:p-8 rounded-[16px] glass text-white flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border border-white/20"
+        >
           <div className="space-y-1 max-w-xl">
             <span className="text-[11px] font-mono uppercase tracking-widest text-[#8CC63F] block">Custom Formulations</span>
             <h3 className="text-lg sm:text-xl font-bold font-display">Need a custom particle size, carrier ratio, or blend?</h3>
@@ -225,7 +237,7 @@ export default function ProductsSection({ onSelectProduct }) {
             <span>Inquire for Custom Spec</span>
             <ArrowRight className="w-4 h-4" />
           </button>
-        </div>
+        </motion.div>
 
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { ArrowRight, PhoneCall } from 'lucide-react';
 import { COMPANY_INFO } from '../data/siteContent';
 
@@ -30,7 +31,13 @@ export default function CtaBanner({ onOpenQuote }) {
       />
 
       <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass p-8 sm:p-12 lg:p-14 rounded-[20px] border border-white/25 flex flex-col lg:flex-row lg:items-center justify-between gap-8 shadow-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+          className="glass p-8 sm:p-12 lg:p-14 rounded-[20px] border border-white/25 flex flex-col lg:flex-row lg:items-center justify-between gap-8 shadow-2xl"
+        >
           <div className="max-w-2xl space-y-3">
             <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#8CC63F] block">
               CONTRACT SUPPLY & R&D SAMPLES
@@ -60,7 +67,7 @@ export default function CtaBanner({ onOpenQuote }) {
               <span>Contact Technical Sales</span>
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
