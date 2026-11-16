@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    overflow-x: clip;
+    max-width: 100vw;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #F6F7F2;
+    color: #1E293B;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F6F7F2;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0B3C5D;
+  }
+}
+
+@layer components {
+  /* On dark / photo backgrounds */
+  .glass {
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(6, 40, 61, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  }
+
+  /* On light backgrounds */
+  .glass-light {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(11, 60, 93, 0.10);
+  }
+
+  /* For deep blue panels */
+  .glass-dark {
+    background: rgba(6, 40, 61, 0.45);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Fallback when backdrop-filter is unsupported */
+  @supports not (backdrop-filter: blur(1px)) {
+    .glass {
+      background: rgba(6, 40, 61, 0.88);
+    }
+    .glass-light {
+      background: rgba(255, 255, 255, 0.94);
+    }
+    .glass-dark {
+      background: rgba(6, 40, 61, 0.92);
+    }
+  }
+
+  /* Mobile blur optimization for performance */
+  @media (max-width: 767px) {
+    .glass {
+      backdrop-filter: blur(10px) saturate(130%);
+      -webkit-backdrop-filter: blur(10px) saturate(130%);
+      border-radius: 14px;
+    }
+    .glass-light {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 14px;
+    }
+    .glass-dark {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 14px;
+    }
+  }
+
+  /* Button & UI utilities */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #8CC63F;
+    color: #06283D;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.75rem 1.375rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(140, 198, 63, 0.25);
+    transition: all 0.25s ease;
+  }
+  .btn-primary:hover {
+    background-color: #7cb433;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(140, 198, 63, 0.35);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.75rem 1.375rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+  .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.22);
+    border-color: #FFFFFF;
+    transform: translateY(-1px);
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
