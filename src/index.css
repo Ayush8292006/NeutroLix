@@ -144,6 +144,15 @@
     border-color: #FFFFFF;
     transform: translateY(-1px);
   }
+
+  /* No Scrollbar Utility */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* Respect reduced motion */

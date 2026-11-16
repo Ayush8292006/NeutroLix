@@ -52,12 +52,12 @@ export default function QualitySection({ onOpenQuote }) {
           {CERTIFICATIONS.map((cert, index) => (
             <motion.div
               key={cert.code}
-              initial={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
+              viewport={{ once: true, amount: 0, margin: '100px' }}
               transition={{
-                duration: 0.5,
-                delay: (index % 4) * 0.08,
+                duration: 0.45,
+                delay: (index % 4) * 0.05,
                 ease: [0.25, 1, 0.5, 1],
               }}
               className="cert-card glass-light p-5 rounded-[16px] flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
@@ -85,10 +85,10 @@ export default function QualitySection({ onOpenQuote }) {
 
           {/* Placeholder Card for custom certificates in .glass-light */}
           <motion.div
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.5, delay: 0.32, ease: [0.25, 1, 0.5, 1] }}
+            viewport={{ once: true, amount: 0, margin: '100px' }}
+            transition={{ duration: 0.45, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
             className="cert-card glass-light p-5 rounded-[16px] border-2 border-dashed border-slate-300 flex flex-col items-center justify-center text-center p-6 hover:border-slate-400 transition-colors"
           >
             <Plus className="w-6 h-6 text-slate-400 mb-2" />
@@ -103,10 +103,10 @@ export default function QualitySection({ onOpenQuote }) {
 
         {/* In-House Testing Laboratory Section in .glass-dark with subtle scroll reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+          viewport={{ once: true, amount: 0, margin: '100px' }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
           className="glass-dark rounded-[20px] text-white p-6 sm:p-10 border border-white/15 relative overflow-hidden"
         >
           <div className="max-w-xl mb-6">

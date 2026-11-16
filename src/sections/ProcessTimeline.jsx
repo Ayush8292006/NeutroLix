@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock } from 'lucide-react';
+import { Clock, ChevronRight } from 'lucide-react';
 import { PROCESS_TIMELINE } from '../data/siteContent';
 import Img from '../components/Img';
 
@@ -8,44 +8,48 @@ export default function ProcessTimeline() {
   return (
     <section
       id="process"
-      className="py-20 lg:py-24 bg-[#F6F7F2] border-b border-slate-200"
+      className="relative py-16 sm:py-20 lg:py-24 bg-[#F6F7F2] border-b border-slate-200 overflow-hidden"
     >
-      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1240px] mx-auto px-3 sm:px-6 lg:px-8">
         
-        {/* Section Header: Subtle Scroll Reveal */}
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 26 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
-          className="max-w-3xl mb-14"
+          viewport={{ once: true, amount: 0, margin: '100px' }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+          className="max-w-3xl mb-8 sm:mb-12"
         >
-          <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
-            MANUFACTURING PROTOCOL · STEP 01 TO 07
-          </span>
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
+              MANUFACTURING PROTOCOL · STEP 01 TO 07
+            </span>
+            <span className="md:hidden text-[10px] font-mono text-slate-500 flex items-center gap-1">
+              <span>Swipe steps</span>
+              <ChevronRight className="w-3 h-3 text-[#0B3C5D]" />
+            </span>
+          </div>
           <div className="h-[1px] w-12 bg-[#8CC63F] mb-4" />
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-display font-extrabold text-[#0B3C5D] tracking-tight leading-[1.18]">
+          <h2 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-display font-extrabold text-[#0B3C5D] tracking-tight leading-[1.18]">
             Farm-to-Drum Processing & Analytical Quarantine
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed font-medium">
+          <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-slate-600 leading-relaxed font-medium">
             Continuous temperature-controlled drying and closed-loop milling protocols engineered to preserve heat-sensitive enzymes, vitamins, and organoleptic properties.
           </p>
         </motion.div>
 
-        {/* Static Step Cards Grid with Gentle Staggered Scroll Reveal */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Clean Responsive Layout: Horizontal swipeable ROW on mobile, grid on tablet & desktop */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0, margin: '150px' }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+          className="flex flex-row overflow-x-auto snap-x snap-mandatory gap-3.5 pb-4 no-scrollbar md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible"
+        >
           {PROCESS_TIMELINE.map((stepItem, index) => (
-            <motion.div
+            <div
               key={stepItem.step}
-              initial={{ opacity: 0, y: 26 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.15 }}
-              transition={{
-                duration: 0.55,
-                delay: (index % 3) * 0.1,
-                ease: [0.25, 1, 0.5, 1],
-              }}
-              className={`process-card group rounded-[16px] bg-white border border-slate-200 overflow-hidden flex flex-col justify-between hover:border-[#0B3C5D] hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 ${
+              className={`process-card group rounded-[16px] bg-white border border-slate-200 overflow-hidden flex flex-col justify-between hover:border-[#0B3C5D] hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 w-[84vw] sm:w-[340px] md:w-auto flex-shrink-0 snap-center ${
                 index === 6 ? 'md:col-span-2 lg:col-span-1' : ''
               }`}
             >
@@ -74,24 +78,24 @@ export default function ProcessTimeline() {
               </div>
 
               {/* Step Details */}
-              <div className="p-5 flex-grow flex flex-col justify-between space-y-3">
+              <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between space-y-3">
                 <div>
-                  <h3 className="font-display font-bold text-base text-[#0B3C5D]">
+                  <h3 className="font-display font-bold text-sm sm:text-base text-[#0B3C5D]">
                     {stepItem.title}
                   </h3>
-                  <p className="text-xs text-slate-600 mt-2 leading-relaxed font-medium">
+                  <p className="text-xs text-slate-600 mt-1.5 sm:mt-2 leading-relaxed font-medium">
                     {stepItem.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-500">
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[10.5px] sm:text-[11px] font-mono text-slate-500">
                   <span>Protocol Validated</span>
                   <span className="text-[#0B3C5D] font-bold">Standard Spec</span>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

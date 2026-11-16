@@ -54,10 +54,10 @@ export default function ContactSection() {
         
         {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
-          initial={{ opacity: 0, y: 26 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
+          viewport={{ once: true, amount: 0, margin: '100px' }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
           className="max-w-3xl mb-14"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#8CC63F] block mb-2">
@@ -76,10 +76,10 @@ export default function ContactSection() {
           
           {/* Left Column: Office Coordinates & Map in .glass with gentle reveal */}
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.65, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
+            viewport={{ once: true, amount: 0, margin: '100px' }}
+            transition={{ duration: 0.5, delay: 0.05, ease: [0.25, 1, 0.5, 1] }}
             className="lg:col-span-5 space-y-5"
           >
             <div className="space-y-4">
@@ -133,10 +133,10 @@ export default function ContactSection() {
 
           {/* Right Column: Large .glass Form Panel with gentle reveal */}
           <motion.div
-            initial={{ opacity: 0, y: 26 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.65, delay: 0.16, ease: [0.25, 1, 0.5, 1] }}
+            viewport={{ once: true, amount: 0, margin: '100px' }}
+            transition={{ duration: 0.5, delay: 0.1, ease: [0.25, 1, 0.5, 1] }}
             className="lg:col-span-7"
           >
             <div className="glass p-6 sm:p-9 rounded-[20px] border border-white/25 shadow-2xl">

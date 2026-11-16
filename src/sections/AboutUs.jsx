@@ -24,7 +24,7 @@ export default function AboutUs() {
         }}
       />
 
-      <div className="relative z-10 max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[1240px] mx-auto px-3 sm:px-6 lg:px-8">
         
         {/* Section Header: Subtle Scroll Reveal */}
         <motion.div
@@ -32,19 +32,19 @@ export default function AboutUs() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.65, ease: [0.25, 1, 0.5, 1] }}
-          className="about-header max-w-3xl mb-12"
+          className="about-header max-w-3xl mb-10 sm:mb-12"
         >
           <span className="text-[11px] font-sans font-semibold tracking-[0.14em] uppercase text-[#0B3C5D] block mb-2">
             WHO WE ARE · INFRASTRUCTURE & SOURCING
           </span>
           <div className="h-[1px] w-12 bg-[#8CC63F] mb-4" />
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-display font-extrabold text-[#0B3C5D] tracking-tight leading-[1.18]">
+          <h2 className="text-2xl sm:text-4xl lg:text-[2.75rem] font-display font-extrabold text-[#0B3C5D] tracking-tight leading-[1.18]">
             Engineering botanical purity for global food & pharma leaders.
           </h2>
         </motion.div>
 
         {/* Split Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start mb-14">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-10 sm:mb-14">
           
           {/* Left: Statement & Narrative on clean background */}
           <motion.div
@@ -52,22 +52,22 @@ export default function AboutUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.65, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-            className="about-text-block lg:col-span-7 space-y-5"
+            className="about-text-block lg:col-span-7 space-y-4 sm:space-y-5"
           >
-            <p className="text-lg sm:text-xl font-display font-semibold text-[#0B3C5D] leading-relaxed">
+            <p className="text-base sm:text-xl font-display font-semibold text-[#0B3C5D] leading-relaxed">
               {ABOUT_CONTENT.lead}
             </p>
 
-            <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed pt-1">
+            <div className="space-y-3 sm:space-y-4 text-slate-700 text-xs sm:text-base leading-relaxed pt-1 font-medium">
               <p>{ABOUT_CONTENT.paragraphs[0]}</p>
               <p>{ABOUT_CONTENT.paragraphs[1]}</p>
             </div>
 
-            <div className="pt-4 border-t border-slate-200">
-              <span className="text-xs font-display font-bold uppercase tracking-wider text-slate-800 block mb-3">
+            <div className="pt-3.5 sm:pt-4 border-t border-slate-200">
+              <span className="text-xs font-display font-bold uppercase tracking-wider text-slate-800 block mb-2.5 sm:mb-3">
                 Key Processing Commitments:
               </span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                 {ABOUT_CONTENT.highlights.map((h, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs text-slate-700">
                     <span className="w-4 h-4 rounded bg-[#8CC63F]/25 text-[#0B3C5D] flex items-center justify-center flex-shrink-0">
@@ -102,14 +102,14 @@ export default function AboutUs() {
             </div>
 
             {/* Overlapping small .glass-light card at corner */}
-            <div className="absolute -bottom-5 -left-4 sm:-bottom-6 sm:-left-6 glass-light p-4 rounded-[14px] shadow-card max-w-[230px] border border-white/80">
-              <div className="flex items-center gap-2 mb-1.5">
+            <div className="absolute -bottom-4 -left-3 sm:-bottom-6 sm:-left-6 glass-light p-3.5 sm:p-4 rounded-[14px] shadow-card max-w-[210px] sm:max-w-[230px] border border-white/80">
+              <div className="flex items-center gap-2 mb-1">
                 <span className="w-2 h-2 rounded-full bg-[#8CC63F] shadow-[0_0_8px_rgba(140,198,63,0.8)]" />
                 <span className="text-xs font-display font-extrabold text-[#0B3C5D]">
                   Spray & Freeze Dried
                 </span>
               </div>
-              <p className="text-[11px] text-slate-700 leading-snug font-medium">
+              <p className="text-[10.5px] sm:text-[11px] text-slate-700 leading-snug font-medium">
                 Preserving enzymatic & nutritional potency under strict low-temperature protocols.
               </p>
             </div>
@@ -117,15 +117,15 @@ export default function AboutUs() {
 
         </div>
 
-        {/* 3 Fact Cards styled in .glass-light with staggered subtle scroll reveal */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, delay: 0.08, ease: [0.25, 1, 0.5, 1] }}
-            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
-          >
+        {/* 3 Fact Cards styled in .glass-light: Horizontal ROW on mobile, 3-col on desktop */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0, margin: '150px' }}
+          transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+          className="flex flex-row overflow-x-auto snap-x snap-mandatory gap-3.5 pb-2 no-scrollbar md:grid md:grid-cols-3 md:gap-6 md:overflow-visible"
+        >
+          <div className="glass-light p-5 sm:p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 w-[80vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center">
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#0B3C5D]">
                 <Compass className="w-4 h-4 text-[#0B3C5D]" />
@@ -140,15 +140,9 @@ export default function AboutUs() {
             <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-slate-500 font-semibold">
               Clean-Label Botanical Standard
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, delay: 0.16, ease: [0.25, 1, 0.5, 1] }}
-            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
-          >
+          <div className="glass-light p-5 sm:p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 w-[80vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center">
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#0B3C5D]">
                 <Target className="w-4 h-4 text-[#8CC63F]" />
@@ -163,15 +157,9 @@ export default function AboutUs() {
             <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-slate-500 font-semibold">
               Active Bioactive Standardization
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 26 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.15 }}
-            transition={{ duration: 0.6, delay: 0.24, ease: [0.25, 1, 0.5, 1] }}
-            className="glass-light p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300"
-          >
+          <div className="glass-light p-5 sm:p-6 rounded-[16px] shadow-subtle flex flex-col justify-between hover:-translate-y-1.5 hover:shadow-card transition-all duration-300 w-[80vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center">
             <div>
               <div className="flex items-center gap-2 mb-2 text-[#0B3C5D]">
                 <Factory className="w-4 h-4 text-[#29A9E0]" />
@@ -186,8 +174,8 @@ export default function AboutUs() {
             <div className="mt-4 pt-3 border-t border-slate-200/80 text-[11px] font-mono text-slate-500 font-semibold">
               350 MT Monthly Output
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
       </div>
     </section>
